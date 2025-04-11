@@ -1,0 +1,5 @@
+### Search SNK
+GET https://api.jikan.moe/v4/anime?q=Shingeki%20no%20Kyojin
+
+### Get SNK characters
+GET https://api.jikan.moe/v4/anime/16498/characters
