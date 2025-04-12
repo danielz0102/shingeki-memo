@@ -1,7 +1,14 @@
 import '@/styles/App.css'
+import video from '@/assets/background.webm'
+import { Landing } from './Landing'
 
 function App() {
-  return <h1>Hello World</h1>
+  return (
+    <>
+      <Landing />
+      <video src={video} muted loop autoPlay></video>
+    </>
+  )
 }
 
 export default App
