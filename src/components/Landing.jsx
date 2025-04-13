@@ -1,9 +1,10 @@
 import '@/styles/Landing.css'
 import snkLogo from '@/assets/snk-logo.png'
 
-export function Landing() {
+export function Landing({ play }) {
   function handleClick(event) {
     event.preventDefault()
+    play()
   }
 
   return (
