@@ -12,6 +12,7 @@
   color: #fff;
   font-family: 'Cormorant Garamond', serif;
   display: grid;
+  position: relative;
 }
 
 h1,

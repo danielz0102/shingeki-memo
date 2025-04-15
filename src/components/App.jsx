@@ -1,11 +1,9 @@
 import '@/styles/App.css'
 import video from '@/assets/background.webm'
 import { Landing } from './Landing'
-import { Card } from './Card'
-import { getCharacters } from '@/services/jikan'
-import { useState } from 'react'
+import { Game } from './Game'
 
-const characters = await getCharacters()
+import { useState } from 'react'
 
 function App() {
   const [inGame, setInGame] = useState(false)
@@ -14,9 +12,7 @@ function App() {
       {!inGame ? (
         <Landing play={() => setInGame(true)} />
       ) : (
-        <main className="game">
-          <Card character={characters[0]} />
-        </main>
+        <Game back={() => setInGame(false)}></Game>
       )}
       <video src={video} muted loop autoPlay></video>
     </>

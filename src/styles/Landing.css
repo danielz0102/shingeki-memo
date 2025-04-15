@@ -1,4 +1,4 @@
-header h1 {
+#landingHeader h1 {
   font-size: 2.5rem;
   color: #eee;
   text-shadow: 0 0 2px #fff;
@@ -10,7 +10,7 @@ header h1 {
   pointer-events: none;
 }
 
-main {
+#landingMain {
   display: grid;
   place-items: end center;
 }
@@ -43,15 +43,12 @@ main {
     text-shadow: 0 0 5px #fff;
   }
 
-  &:focus {
+  &:focus-visible,
+  &:hover {
     outline: none;
 
     &::before {
       width: 100%;
     }
-  }
-
-  &:active {
-    color: #000;
   }
 }

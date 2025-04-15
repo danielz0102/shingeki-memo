@@ -1,21 +1,21 @@
 import '@/styles/Card.css'
-import { useState } from 'react'
 
-export function Card({ character }) {
-  const [flipped, setFlipped] = useState(false)
-
-  function toggleFlip() {
-    setFlipped(!flipped)
+export function Card({ character, onClick, flipped = false }) {
+  function handleClick() {
+    onClick(character)
   }
 
   return (
     <button
       className={`card ${flipped ? 'card--flipped' : ''}`}
-      onClick={toggleFlip}
+      onClick={handleClick}
+      disabled={flipped}
     >
       <div className="card__front">
-        <img src={character.image} alt="" />
-        {character.name}
+        <div className="img-container">
+          <img src={character.image} alt="" />
+        </div>
+        <span>{character.name}</span>
       </div>
       <div className="card__back"></div>
     </button>

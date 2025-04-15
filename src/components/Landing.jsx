@@ -9,11 +9,11 @@ export function Landing({ play }) {
 
   return (
     <>
-      <header>
+      <header id="landingHeader">
         <img className="logo" src={snkLogo} alt="Attack on Titan" />
         <h1>Memory Card Game</h1>
       </header>
-      <main>
+      <main id="landingMain">
         <a href="#" id="playBtn" onClick={handleClick}>
           Play
         </a>

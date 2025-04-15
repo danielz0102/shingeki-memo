@@ -18,7 +18,9 @@ export async function getCharacters() {
   }
 
   return data.map(({ character }) => ({
+    id: character.mal_id,
     name: character.name.split(', ').reverse().join(' '),
     image: character.images.jpg.image_url,
+    selected: false,
   }))
 }
