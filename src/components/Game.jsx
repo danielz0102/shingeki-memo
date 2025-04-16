@@ -1,45 +1,34 @@
 import '@/styles/Game.css'
-import snkLogo from '@/assets/snk-logo.png'
 import { useCharacters } from '@/hooks'
 import { Card } from './Card'
 import { shuffle } from '@/utils'
+import { GameHeader } from './GameHeader'
+import { MAX_SCORE } from '@/constants'
 import { useState, useRef } from 'react'
 
-const MAX_SCORE = 10
-
 export function Game({ back }) {
-  const [score, setScore] = useState(0)
+  const [characters, setCharacters, score] = useCharacters(MAX_SCORE)
   const [bestScore, setBestScore] = useState(0)
-  const [characters, setCharacters] = useCharacters(MAX_SCORE, score)
   const [flipped, setFlipped] = useState(false)
-  const [maxScoreAchieved, setMaxScoreAchieved] = useState(false)
   const [failed, setFailed] = useState(false)
   const winDialog = useRef(null)
 
   const win = score === MAX_SCORE
 
+  if (score > bestScore) {
+    setBestScore(score)
+  }
+
   if (win) {
     winDialog.current.showModal()
-    setMaxScoreAchieved(true)
     reset()
   }
 
-  function backHome(event) {
-    event.preventDefault()
-    back()
-  }
-
-  function handleSelect(character) {
+  function handleCardClick(character) {
     setFlipped(true)
 
     setTimeout(() => {
-      if (character.selected === true) {
-        setFailed(true)
-        reset()
-      } else {
-        selectCharacter(character.id)
-        increaseScore()
-      }
+      handleSelect(character)
 
       setTimeout(() => {
         setFlipped(false)
@@ -47,12 +36,12 @@ export function Game({ back }) {
     }, 500)
   }
 
-  function increaseScore() {
-    const newScore = score + 1
-    setScore(newScore)
-
-    if (newScore > bestScore) {
-      setBestScore(newScore)
+  function handleSelect(character) {
+    if (character.selected === true) {
+      setFailed(true)
+      reset()
+    } else {
+      selectCharacter(character.id)
     }
   }
 
@@ -60,7 +49,6 @@ export function Game({ back }) {
     const newCharacters = shuffle(characters)
     newCharacters.forEach((c) => (c.selected = false))
 
-    setScore(0)
     setCharacters(newCharacters)
   }
 
@@ -74,43 +62,32 @@ export function Game({ back }) {
 
   return (
     <>
-      <header id="gameHeader">
-        <a href="#" onClick={backHome}>
-          <img className="logo" src={snkLogo} alt="Home" />
-        </a>
-        <div>
-          <p
-            className={failed ? 'failed' : ''}
-            onAnimationEnd={() => setFailed(false)}
-          >
-            Score: {score}
-          </p>
-          <p className={maxScoreAchieved ? 'max-score' : ''}>
-            {maxScoreAchieved
-              ? `Max score achieved (${bestScore})`
-              : `Best score: ${bestScore}`}
-          </p>
-        </div>
-      </header>
+      <GameHeader
+        failed={failed}
+        setFailed={setFailed}
+        score={score}
+        bestScore={bestScore}
+        back={back}
+      />
       <main id="gameMain">
         {characters.map((character) => (
           <Card
             key={character.id}
             character={character}
-            onClick={handleSelect}
+            onClick={handleCardClick}
             flipped={flipped}
           />
         ))}
-        <dialog ref={winDialog} onClick={() => winDialog.current.close()}>
-          <form method="dialog">
-            <h2>You win</h2>
-            <button autoFocus>Close</button>
-          </form>
-        </dialog>
       </main>
       <footer id="gameFooter">
         <p>Don't click on any card more than once</p>
       </footer>
+      <dialog ref={winDialog} onClick={() => winDialog.current.close()}>
+        <form method="dialog">
+          <h2>You win</h2>
+          <button autoFocus>Close</button>
+        </form>
+      </dialog>
     </>
   )
 }

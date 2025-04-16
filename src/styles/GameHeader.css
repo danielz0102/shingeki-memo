@@ -1,0 +1,20 @@
+#gameHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+
+  & a {
+    transition: transform 0.25s ease-in-out;
+
+    &:focus-visible,
+    &:hover {
+      outline: none;
+      transform: scale(1.1);
+    }
+  }
+
+  & .logo {
+    width: 200px;
+    height: auto;
+  }
+}
