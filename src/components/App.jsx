@@ -1,13 +1,28 @@
 import '@/styles/App.css'
-import video from '@/assets/videos/background.webm'
+import videoSrc from '@/assets/videos/background.webm'
 
 import { Landing } from './Landing'
 import { Game } from './Game'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 function App() {
   const [inGame, setInGame] = useState(false)
+  const video = useRef()
+
+  useEffect(() => {
+    const videoElement = video.current
+    videoElement.addEventListener('canplay', fadeInVideo)
+
+    return () => {
+      videoElement.removeEventListener('canplay', fadeInVideo)
+    }
+  }, [])
+
+  function fadeInVideo() {
+    video.current.style.opacity = '1'
+  }
+
   return (
     <>
       {!inGame ? (
@@ -15,7 +30,15 @@ function App() {
       ) : (
         <Game back={() => setInGame(false)}></Game>
       )}
-      <video src={video} muted loop autoPlay></video>
+      <video
+        ref={video}
+        src={videoSrc}
+        muted
+        loop
+        autoPlay
+        playsInline
+        preload="auto"
+      ></video>
     </>
   )
 }
