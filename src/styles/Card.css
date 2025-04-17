@@ -61,6 +61,7 @@
 }
 
 .card__back {
-  background: url('@/assets/card-background.webp') center/contain no-repeat;
+  background: url('@/assets/images/card-background.webp') center/contain
+    no-repeat;
   transform: rotateY(180deg);
 }

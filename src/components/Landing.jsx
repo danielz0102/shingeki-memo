@@ -1,5 +1,5 @@
 import '@/styles/Landing.css'
-import snkLogo from '@/assets/snk-logo.png'
+import snkLogo from '@/assets/images/snk-logo.png'
 
 export function Landing({ play }) {
   function handleClick(event) {

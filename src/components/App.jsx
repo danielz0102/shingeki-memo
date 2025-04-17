@@ -1,5 +1,6 @@
 import '@/styles/App.css'
-import video from '@/assets/background.webm'
+import video from '@/assets/videos/background.webm'
+
 import { Landing } from './Landing'
 import { Game } from './Game'
 

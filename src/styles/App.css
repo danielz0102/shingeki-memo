@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Cloister Black';
-  src: url('@/assets/CloisterBlack.ttf') format('truetype');
+  src: url('@/assets/fonts/CloisterBlack.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }

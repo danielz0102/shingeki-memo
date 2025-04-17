@@ -53,7 +53,7 @@ dialog {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: url('@/assets/recon.webp') center/cover;
+  background: url('@/assets/images/recon.webp') center/cover;
   color: #fff;
   border: none;
   border-radius: 4px;

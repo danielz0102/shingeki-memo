@@ -1,5 +1,5 @@
 import '@/styles/GameHeader.css'
-import snkLogo from '@/assets/snk-logo.png'
+import snkLogo from '@/assets/images/snk-logo.png'
 import { MAX_SCORE } from '@/constants'
 
 export function GameHeader({ failed, setFailed, score, bestScore, back }) {
