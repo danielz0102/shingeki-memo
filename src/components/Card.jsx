@@ -3,15 +3,10 @@ import cardSound from '@/assets/sounds/card-flip.mp3'
 
 const audio = new Audio(cardSound)
 
-function playSound() {
-  audio.currentTime = 0
-  audio.play()
-}
-
 export function Card({ character, onClick, soundOn = true, flipped = false }) {
   function handleClick() {
     if (soundOn) {
-      playSound()
+      audio.play()
     }
 
     onClick(character)
