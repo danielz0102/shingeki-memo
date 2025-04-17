@@ -1,9 +1,12 @@
 import '@/styles/Game.css'
-import { useCharacters } from '@/hooks'
-import { Card } from './Card'
 import { shuffle } from '@/utils'
-import { GameHeader } from './GameHeader'
 import { MAX_SCORE } from '@/constants'
+
+import { Card } from './Card'
+import { GameHeader } from './GameHeader'
+import { VolumeIcon } from './icons'
+
+import { useCharacters } from '@/hooks'
 import { useState, useRef } from 'react'
 
 export function Game({ back }) {
@@ -11,6 +14,7 @@ export function Game({ back }) {
   const [bestScore, setBestScore] = useState(0)
   const [flipped, setFlipped] = useState(false)
   const [failed, setFailed] = useState(false)
+  const [soundOn, setSoundOn] = useState(true)
   const winDialog = useRef(null)
 
   const win = score === MAX_SCORE
@@ -76,10 +80,14 @@ export function Game({ back }) {
             character={character}
             onClick={handleCardClick}
             flipped={flipped}
+            soundOn={soundOn}
           />
         ))}
       </main>
       <footer id="gameFooter">
+        <button className="sound-btn" onClick={() => setSoundOn(!soundOn)}>
+          <VolumeIcon on={soundOn} />
+        </button>
         <p>Don't click on any card more than once</p>
       </footer>
       <dialog ref={winDialog} onClick={() => winDialog.current.close()}>

@@ -8,9 +8,12 @@ function playSound() {
   audio.play()
 }
 
-export function Card({ character, onClick, flipped = false }) {
+export function Card({ character, onClick, soundOn = true, flipped = false }) {
   function handleClick() {
-    playSound()
+    if (soundOn) {
+      playSound()
+    }
+
     onClick(character)
   }
 
