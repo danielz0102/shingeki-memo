@@ -1,5 +1,5 @@
 import '@/styles/Game.css'
-import { shuffle } from '@/utils'
+import { shuffle } from '@/utils/suffle'
 import { MAX_SCORE } from '@/constants'
 
 import { Card } from './Card'
@@ -7,7 +7,7 @@ import { GameHeader } from './GameHeader'
 import { VolumeIcon } from './icons'
 import { WinDialog } from './WinDialog'
 
-import { useCharacters } from '@/hooks'
+import { useCharacters } from '@/hooks/useCharacters'
 import { useState } from 'react'
 
 export function Game({ back }) {

@@ -1,4 +1,4 @@
-import { shuffle } from '@/utils'
+import { shuffle } from '@/utils/suffle'
 import { getCharacters } from '@/services/jikan'
 import { useEffect, useState } from 'react'
 
