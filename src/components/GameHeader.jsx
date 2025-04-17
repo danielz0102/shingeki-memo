@@ -15,9 +15,9 @@ export function GameHeader({ failed, setFailed, score, bestScore, back }) {
       <a href="#" onClick={backHome}>
         <img className="logo" src={snkLogo} alt="Home" />
       </a>
-      <div>
+      <div className="scoreboard">
         <p
-          className={`score ${failed ? 'failed' : ''}`}
+          className={failed ? 'failed' : ''}
           onAnimationEnd={() => setFailed(false)}
         >
           Score: {score}

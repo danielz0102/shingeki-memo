@@ -1,5 +1,4 @@
 #root {
-  grid-template-rows: auto 1fr auto;
   gap: 32px;
 }
 

@@ -18,3 +18,9 @@
     height: auto;
   }
 }
+
+.scoreboard {
+  position: fixed;
+  right: 16px;
+  z-index: 1000;
+}
