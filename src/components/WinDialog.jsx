@@ -1,25 +1,23 @@
 import winSound from '@/assets/sounds/win.mp3'
-
+import { Song } from '@/utils/song'
 import { useRef } from 'react'
 
-const winAudio = new Audio(winSound)
-winAudio.volume = 0.1
+const winSong = new Song(winSound, 0.5)
 
 export function WinDialog({ show, soundOn, onClose }) {
   const modal = useRef()
 
   if (show) {
     modal.current.showModal()
-  }
 
-  if (show && soundOn) {
-    winAudio.currentTime = 0
-    winAudio.play()
+    if (soundOn) {
+      winSong.play(2000)
+    }
   }
 
   function close() {
     modal.current.close()
-    winAudio.pause()
+    winSong.stop()
     onClose()
   }
 
