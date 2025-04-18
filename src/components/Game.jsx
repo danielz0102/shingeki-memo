@@ -80,7 +80,11 @@ export function Game({ back }) {
         ))}
       </main>
       <footer id="gameFooter">
-        <button className="sound-btn" onClick={() => setSoundOn(!soundOn)}>
+        <button
+          className="sound-btn"
+          onClick={() => setSoundOn(!soundOn)}
+          aria-label={soundOn ? 'Turn off sound' : 'Turn on sound'}
+        >
           <VolumeIcon on={soundOn} />
         </button>
         <p>Don't click on any card more than once</p>

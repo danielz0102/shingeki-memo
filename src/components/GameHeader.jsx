@@ -13,7 +13,13 @@ export function GameHeader({ failed, setFailed, score, bestScore, back }) {
   return (
     <header id="gameHeader">
       <a href="#" onClick={backHome}>
-        <img className="logo" src={snkLogo} alt="Home" />
+        <img
+          className="logo"
+          src={snkLogo}
+          alt="Home"
+          width="200"
+          height="65"
+        />
       </a>
       <div className="scoreboard">
         <p

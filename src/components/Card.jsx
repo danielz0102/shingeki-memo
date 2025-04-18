@@ -20,7 +20,7 @@ export function Card({ character, onClick, soundOn = true, flipped = false }) {
     >
       <div className="card__front">
         <div className="img-container">
-          <img src={character.image} alt="" />
+          <img src={character.image} alt="" width="300" height="215" />
         </div>
         <span>{character.name}</span>
       </div>
