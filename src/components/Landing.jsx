@@ -10,7 +10,13 @@ export function Landing({ play }) {
   return (
     <>
       <header id="landingHeader">
-        <img className="logo" src={snkLogo} alt="Attack on Titan" />
+        <img
+          className="logo"
+          src={snkLogo}
+          width="500"
+          height="250"
+          alt="Attack on Titan"
+        />
         <h1>Memory Card Game</h1>
       </header>
       <main id="landingMain">
