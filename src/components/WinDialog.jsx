@@ -1,4 +1,4 @@
-import winSound from '@/assets/sounds/win.mp3'
+import winSound from '@/assets/audio/win.mp3'
 import { Song } from '@/utils/song'
 import { useRef } from 'react'
 

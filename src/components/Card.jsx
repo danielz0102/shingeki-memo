@@ -1,5 +1,5 @@
 import '@/styles/Card.css'
-import cardSound from '@/assets/sounds/card-flip.mp3'
+import cardSound from '@/assets/audio/card-flip.mp3'
 
 const audio = new Audio(cardSound)
 
