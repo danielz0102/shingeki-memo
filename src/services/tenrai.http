@@ -1,0 +1,5 @@
+### Search SNK
+GET https://api.tenrai.org/v1/anime?q=Shingeki%20no%20Kyojin
+
+### Get SNK characters
+GET https://api.tenrai.org/v1/anime/16498/characters

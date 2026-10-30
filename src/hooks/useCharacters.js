@@ -1,5 +1,5 @@
 import { shuffle } from '@/utils/suffle'
-import { getCharacters } from '@/services/jikan'
+import { getCharacters } from '@/services/tenrai'
 import { useEffect, useState } from 'react'
 
 const allCharacters = await getCharacters()

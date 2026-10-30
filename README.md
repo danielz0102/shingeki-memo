@@ -5,4 +5,4 @@
 A memory card game made with React featuring characters from the popular anime series "Attack on Titan" (Shingeki no Kyojin).
 
 > [!NOTE]
-> Character data provided by [Jikan API](https://jikan.moe/)
+> Character data provided by [Tenrai API](https://tenrai.org/)

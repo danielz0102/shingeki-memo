@@ -3,7 +3,7 @@ export async function getCharacters() {
 
   try {
     const response = await fetch(
-      'https://api.jikan.moe/v4/anime/16498/characters',
+      'https://api.tenrai.org/v1/anime/16498/characters',
     )
 
     if (!response.ok) {
